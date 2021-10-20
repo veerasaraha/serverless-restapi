@@ -3,24 +3,15 @@ const validator = require('validator').default
 
 
 
-const NoteSchema = new mongoose.Schema(
+const noteSchema = new mongoose.Schema(
   {
     title : {
+      type: String,
       required : true,
-      validate : {
-        validator : function(title) {
-          return validator.isAlphanumeric(title)
-        }
-      }
     },
     description: {
       type : String,
       required : true,
-      validate : {
-        validator : function(description){
-          return validator.isAlphanumeric(description)
-        }
-      }
     },
     reminder: {
       type : Boolean,
@@ -44,4 +35,4 @@ const NoteSchema = new mongoose.Schema(
 )
 
 
-module.exports = mongoose.model('Note', NoteSchema)
+module.exports = mongoose.model('Note', noteSchema)
